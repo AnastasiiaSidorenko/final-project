@@ -46,9 +46,9 @@ const MainPage = () => {
     ];
 
     const handleClick = () => {
-        alert('it works');
+       alert('it works');
     }
-
+    
     return (
         <div className="container">
             <div className="row row-cols-1 row-cols-md-4">
