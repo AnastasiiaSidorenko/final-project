@@ -46,7 +46,7 @@ const CaughtPokemons = () => {
     ];
     return (
         <div className="container">
-            <div className="row">
+            <div className="row row-cols-1 row-cols-md-4">
                 {pokemons.map(pokemon => <Pokemon name={pokemon.name} id={pokemon.id} showButton={false} />)}
             </div>
         </div>
