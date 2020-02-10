@@ -46,13 +46,13 @@ const MainPage = () => {
     ];
 
     const handleClick = () => {
-
+       alert('it works');
     }
     
     return (
         <div className="container">
             <div className="row">
-                {pokemons.map(pokemon => <Pokemon key={pokemon.id} name={pokemon.name} id={pokemon.id} showButton={true} />)}
+                {pokemons.map(pokemon => <Pokemon handleClick={handleClick} key={pokemon.id} name={pokemon.name} id={pokemon.id} showButton={true} />)}
             </div>
         </div>
     );

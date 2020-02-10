@@ -7,7 +7,7 @@ const Pokemon = (props) => {
             <img src={`./pokemons/${props.id}.png`} className="card-img-top" alt="Pokemon" />
             <div className="card-body">
                 <p className="card-title">{props.name}</p>
-                {props.showButton && <button disabled={props.isCaught} className="btn btn-primary">catch</button>}
+                {props.showButton && <button onClick={props.handleClick} disabled={props.isCaught} className="btn btn-primary">catch</button>}
             </div>
         </div>
     );
