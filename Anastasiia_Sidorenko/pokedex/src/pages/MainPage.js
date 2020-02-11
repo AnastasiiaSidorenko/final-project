@@ -11,7 +11,7 @@ class MainPage extends React.Component {
     }
 
     componentDidMount() {
-        fetch('https://jsonplaceholder.typicode.com/users')
+        fetch('http://localhost:3004/pokemons')
           .then(response => response.json())
           .then(json => this.setState({ pokemons: json }));
       }
