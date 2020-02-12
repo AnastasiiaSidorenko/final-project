@@ -5,7 +5,7 @@ const PokemonProfile = (props) => {
         <div className="card mb-3">
             <div className="row no-gutters">
                 <div className="col-md-4">
-                    <img src={`./pokemons/${props.id}.png`} className="card-img-top" alt="Pokemon" />
+                    <img src={`./../pokemons/${props.id}.png`} className="card-img-top" alt="Pokemon" />
                 </div>
                 <div className="col-md-8">
                     <div className="card-body">

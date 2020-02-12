@@ -1,7 +1,10 @@
 import React from 'react';
 import PokemonProfile from '../components/pokemonProfile/PokemonProfile';
+import { useParams } from 'react-router-dom';
 
 const PokemonPage = () => {
+    const { id } = useParams();
+
     const pokemons = [
         {
             "name": "bulbasaur",
@@ -44,8 +47,11 @@ const PokemonPage = () => {
             "id": 10
         }
     ];
+
+    const pokemon = pokemons.find(pokemon => pokemon.id === parseInt(id));
+
     return (
-        pokemons.map(pokemon => <PokemonProfile key={pokemon.id} name={pokemon.name} id={pokemon.id} />)
+        <PokemonProfile name={pokemon.name} id={pokemon.id} />
     );
 }
 
