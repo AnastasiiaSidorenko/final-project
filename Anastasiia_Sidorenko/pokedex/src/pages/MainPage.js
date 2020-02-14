@@ -1,22 +1,17 @@
 import React from 'react';
-import axios from 'axios';
+import { connect } from 'react-redux';
+import { getPokemons } from '../actions/pokemonActionCreator';
 import Pokemon from '../components/pokemon/Pokemon';
 
 class MainPage extends React.Component {
     constructor(props) {
         super(props);
-
-        this.state = {
-            pokemons: []
-        }
     }
 
     componentDidMount() {
-        axios.get('http://localhost:3004/pokemons')
-            .then(response => {
-                const pokemons = response.data;
-                this.setState({pokemons});
-            })
+        if (!this.props.pokemons.length) {
+            this.props.loadPokemons('http://localhost:3004/pokemons/');
+        }
     }
 
     handleClick = () => {
@@ -27,11 +22,23 @@ class MainPage extends React.Component {
         return (
             <div className="container">
                 <div className="row row-cols-1 row-cols-md-4">
-                    {this.state.pokemons.map(pokemon => <Pokemon handleClick={this.handleClick} key={pokemon.id} name={pokemon.name} id={pokemon.id} showButton={true} />)}
+                    {this.props.pokemons.map(pokemon => <Pokemon handleClick={this.handleClick} key={pokemon.id} name={pokemon.name} id={pokemon.id} showButton={true} />)}
                 </div>
             </div>
         );
     }
 }
 
-export default MainPage;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        loadPokemons: (url) => dispatch(getPokemons(url))
+    };
+}
+
+const mapStateToProps = (state) => {
+    return {
+        pokemons: state.pokemonListLoaded
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainPage);
