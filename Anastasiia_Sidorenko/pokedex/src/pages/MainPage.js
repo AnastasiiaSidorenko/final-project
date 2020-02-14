@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import Pokemon from '../components/pokemon/Pokemon';
 
 class MainPage extends React.Component {
@@ -11,9 +12,11 @@ class MainPage extends React.Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:3004/pokemons')
-            .then(response => response.json())
-            .then(json => this.setState({ pokemons: json }));
+        axios.get('http://localhost:3004/pokemons')
+            .then(response => {
+                const pokemons = response.data;
+                this.setState({pokemons});
+            })
     }
 
     handleClick = () => {

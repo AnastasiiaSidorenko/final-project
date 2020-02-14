@@ -6,13 +6,10 @@ import CaughtPokemons from './pages/CaughtPokemons';
 import PokemonPage from './pages/PokemonPage';
 
 function App() {
-
   return (
     <div className="App">
-      
-
       <Router>
-      <Header />
+        <Header />
         <Switch>
           <Route exact path="/">
             <MainPage />
@@ -28,7 +25,6 @@ function App() {
           </Route>
         </Switch>
       </Router>
-
     </div>
   );
 }
