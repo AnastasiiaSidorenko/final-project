@@ -36,10 +36,10 @@ class MainPage extends React.Component {
         const updatedPokemon = {
             ...pokemon,
             isCaught: true,
-            date: new Date()
+            date: Date.now()
         };
-        axios.patch(`http://localhost:3004/pokemons/${pokemon.id}`, updatedPokemon);
-        axios.post(`http://localhost:3004/caught-pokemons/`, updatedPokemon);
+        axios.patch(`http://localhost:3004/pokemons/${pokemon.id}`, updatedPokemon)
+            .then(() => axios.post(`http://localhost:3004/caught-pokemons/`, updatedPokemon));
     }
 
     handleLoadClick = () => {

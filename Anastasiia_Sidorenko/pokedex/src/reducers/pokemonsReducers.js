@@ -1,4 +1,4 @@
-import { POKEMON_LIST_LOADED, POKEMON_LIST_CLEARED } from '../actions/actions';
+import { POKEMON_LIST_LOADED, POKEMON_LIST_CLEARED, POKEMON_LOADED } from '../actions/actions';
 
 export function pokemonListLoaded(state = [], action) {
     switch (action.type) {
@@ -9,6 +9,15 @@ export function pokemonListLoaded(state = [], action) {
             ];
         case POKEMON_LIST_CLEARED:
             return [];
+        default:
+            return state;
+    }
+}
+
+export function pokemonLoaded(state = {}, action) {
+    switch (action.type) {
+        case POKEMON_LOADED:
+            return action.pokemon;
         default:
             return state;
     }

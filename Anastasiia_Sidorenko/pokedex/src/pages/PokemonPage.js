@@ -1,58 +1,36 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { getPokemon } from '../actions/pokemonActionCreator';
 import PokemonProfile from '../components/pokemonProfile/PokemonProfile';
-import { useParams } from 'react-router-dom';
+import { withRouter } from 'react-router';
 
-const PokemonPage = () => {
-    const { id } = useParams();
+class PokemonPage extends React.Component {
+    constructor(props) {
+        super(props);
+    }
 
-    const pokemons = [
-        {
-            "name": "bulbasaur",
-            "id": 1
-        },
-        {
-            "name": "ivysaur",
-            "id": 2
-        },
-        {
-            "name": "venusaur",
-            "id": 3
-        },
-        {
-            "name": "charmander",
-            "id": 4
-        },
-        {
-            "name": "charmeleon",
-            "id": 5
-        },
-        {
-            "name": "charizard",
-            "id": 6
-        },
-        {
-            "name": "squirtle",
-            "id": 7
-        },
-        {
-            "name": "wartortle",
-            "id": 8
-        },
-        {
-            "name": "blastoise",
-            "id": 9
-        },
-        {
-            "name": "caterpie",
-            "id": 10
-        }
-    ];
+    componentDidMount() {
+        const { match } = this.props;
+        this.props.loadPokemon(`http://localhost:3004/pokemons/${match.params.id}`);
+    }
 
-    const pokemon = pokemons.find(pokemon => pokemon.id === parseInt(id));
-
-    return (
-        <PokemonProfile name={pokemon.name} id={pokemon.id} />
-    );
+    render() {
+        return (
+            <PokemonProfile pokemon={this.props.pokemon} />
+        );
+    }
 }
 
-export default PokemonPage;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        loadPokemon: (url) => dispatch(getPokemon(url)),
+    };
+}
+
+const mapStateToProps = (state) => {
+    return {
+        pokemon: state.pokemonLoaded
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(PokemonPage));
