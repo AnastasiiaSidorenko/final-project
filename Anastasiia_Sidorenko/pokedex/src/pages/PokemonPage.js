@@ -11,7 +11,7 @@ class PokemonPage extends React.Component {
 
     componentDidMount() {
         const { match } = this.props;
-        this.props.loadPokemon(`http://localhost:3004/pokemons/${match.params.id}`);
+        this.props.loadPokemon(match.params.id);
     }
 
     render() {
@@ -23,7 +23,7 @@ class PokemonPage extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        loadPokemon: (url) => dispatch(getPokemon(url)),
+        loadPokemon: (id) => dispatch(getPokemon(id)),
     };
 }
 

@@ -28,27 +28,27 @@ export function caughtPokemonsListLoaded(pokemons) {
     }
 }
 
-export function getPokemons(url) {
+export function getPokemons(page, limit = 12) {
     return (dispatch) => {
-        axios.get(url)
+        axios.get(`http://localhost:3004/pokemons/?_page=${page}&_limit=${limit}`)
             .then(response => {
                 dispatch(pokemonListLoaded(response.data));
             });
     }
 }
 
-export function getPokemon(url) {
+export function getPokemon(id) {
     return (dispatch) => {
-        axios.get(url)
+        axios.get(`http://localhost:3004/pokemons/${id}`)
             .then(response => {
                 dispatch(pokemonLoaded(response.data));
             });
     }
 }
 
-export function getCaughtPokemons(url) {
+export function getCaughtPokemons() {
     return (dispatch) => {
-        axios.get(url)
+        axios.get('http://localhost:3004/caught-pokemons')
             .then(response => {
                 dispatch(caughtPokemonsListLoaded(response.data));
             });

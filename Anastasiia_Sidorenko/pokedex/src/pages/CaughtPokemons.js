@@ -9,13 +9,13 @@ class CaughtPokemons extends React.Component {
     }
 
     componentDidMount() {
-        this.props.loadCaughtPokemons('http://localhost:3004/caught-pokemons');
+        this.props.loadCaughtPokemons();
     }
 
     render() {
         return (
             <div className="container">
-                <div className="row row-cols-1 row-cols-md-4">
+                <div className="row row-cols-1 row-cols-md-4  mt-3">
                     {this.props.pokemons.map(pokemon => <Pokemon key={pokemon.id} pokemon={pokemon} showButton={false} />)}
                 </div>
             </div>
@@ -25,7 +25,7 @@ class CaughtPokemons extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        loadCaughtPokemons: (url) => dispatch(getCaughtPokemons(url))
+        loadCaughtPokemons: () => dispatch(getCaughtPokemons())
     };
 }
 

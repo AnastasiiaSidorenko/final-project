@@ -28,7 +28,7 @@ class MainPage extends React.Component {
     }
 
     getData = () => {
-        this.props.loadPokemons(`http://localhost:3004/pokemons/?_page=${this.state.page}&_limit=12`);
+        this.props.loadPokemons(this.state.page);
     }
 
     handleCatchClick = (event, pokemon) => {
@@ -68,7 +68,7 @@ class MainPage extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        loadPokemons: (url) => dispatch(getPokemons(url)),
+        loadPokemons: (page) => dispatch(getPokemons(page)),
         clearPokemonsStore: () => dispatch(pokemonClear())
     };
 }
