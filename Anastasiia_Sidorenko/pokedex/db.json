@@ -2,11 +2,15 @@
   "pokemons": [
     {
       "name": "bulbasaur",
-      "id": 1
+      "id": 1,
+      "isCaught": true,
+      "date": "2020-02-14T20:48:23.810Z"
     },
     {
       "name": "ivysaur",
-      "id": 2
+      "id": 2,
+      "isCaught": true,
+      "date": "2020-02-14T20:52:59.060Z"
     },
     {
       "name": "venusaur",
@@ -14,7 +18,9 @@
     },
     {
       "name": "charmander",
-      "id": 4
+      "id": 4,
+      "isCaught": true,
+      "date": "2020-02-14T20:55:21.852Z"
     },
     {
       "name": "charmeleon",
@@ -3795,6 +3801,18 @@
     {
       "name": "magearna-original",
       "id": 10147
+    }
+  ],
+  "caught-pokemons": [
+    {
+      "name": "bulbasaur",
+      "id": 1
+    },
+    {
+      "name": "ivysaur",
+      "id": 2,
+      "isCaught": true,
+      "date": "2020-02-14T20:52:59.060Z"
     }
   ]
 }
