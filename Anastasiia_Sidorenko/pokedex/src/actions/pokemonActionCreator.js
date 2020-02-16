@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { POKEMON_LIST_LOADED, POKEMON_LIST_CLEARED, POKEMON_LOADED } from './actions';
+import { POKEMON_LIST_LOADED, POKEMON_LIST_CLEARED, POKEMON_LOADED, CAUGHT_POKEMONS_LIST_LOADED } from './actions';
 
 export function pokemonListLoaded(pokemons) {
     return {
@@ -21,6 +21,13 @@ export function pokemonLoaded(pokemon) {
     }
 }
 
+export function caughtPokemonsListLoaded(pokemons) {
+    return {
+        type: CAUGHT_POKEMONS_LIST_LOADED,
+        pokemons
+    }
+}
+
 export function getPokemons(url) {
     return (dispatch) => {
         axios.get(url)
@@ -35,6 +42,15 @@ export function getPokemon(url) {
         axios.get(url)
             .then(response => {
                 dispatch(pokemonLoaded(response.data));
+            });
+    }
+}
+
+export function getCaughtPokemons(url) {
+    return (dispatch) => {
+        axios.get(url)
+            .then(response => {
+                dispatch(caughtPokemonsListLoaded(response.data));
             });
     }
 }

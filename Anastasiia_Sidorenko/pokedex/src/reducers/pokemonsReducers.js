@@ -1,4 +1,4 @@
-import { POKEMON_LIST_LOADED, POKEMON_LIST_CLEARED, POKEMON_LOADED } from '../actions/actions';
+import { POKEMON_LIST_LOADED, POKEMON_LIST_CLEARED, POKEMON_LOADED, CAUGHT_POKEMONS_LIST_LOADED } from '../actions/actions';
 
 export function pokemonListLoaded(state = [], action) {
     switch (action.type) {
@@ -23,3 +23,11 @@ export function pokemonLoaded(state = {}, action) {
     }
 }
 
+export function caughtPokemonsListLoaded(state = [], action) {
+    switch (action.type) {
+        case CAUGHT_POKEMONS_LIST_LOADED:
+            return action.pokemons;
+        default:
+            return state;
+    }
+}

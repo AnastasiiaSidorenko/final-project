@@ -1,57 +1,38 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { getCaughtPokemons } from '../actions/pokemonActionCreator';
 import Pokemon from '../components/pokemon/Pokemon';
 
-const CaughtPokemons = () => {
-    const pokemons = [
-        {
-            "name": "bulbasaur",
-            "id": 1
-        },
-        {
-            "name": "ivysaur",
-            "id": 2
-        },
-        {
-            "name": "venusaur",
-            "id": 3
-        },
-        {
-            "name": "charmander",
-            "id": 4
-        },
-        {
-            "name": "charmeleon",
-            "id": 5
-        },
-        {
-            "name": "charizard",
-            "id": 6
-        },
-        {
-            "name": "squirtle",
-            "id": 7
-        },
-        {
-            "name": "wartortle",
-            "id": 8
-        },
-        {
-            "name": "blastoise",
-            "id": 9
-        },
-        {
-            "name": "caterpie",
-            "id": 10
-        }
-    ];
-    return (
-        <div className="container">
-            <div className="row row-cols-1 row-cols-md-4">
-                {pokemons.map(pokemon => <Pokemon name={pokemon.name} id={pokemon.id} showButton={false} />)}
+class CaughtPokemons extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    componentDidMount() {
+        this.props.loadCaughtPokemons('http://localhost:3004/caught-pokemons');
+    }
+
+    render() {
+        return (
+            <div className="container">
+                <div className="row row-cols-1 row-cols-md-4">
+                    {this.props.pokemons.map(pokemon => <Pokemon key={pokemon.id} pokemon={pokemon} showButton={false} />)}
+                </div>
             </div>
-        </div>
-    );
+        );
+    }
 }
 
-export default CaughtPokemons;
+const mapDispatchToProps = (dispatch) => {
+    return {
+        loadCaughtPokemons: (url) => dispatch(getCaughtPokemons(url))
+    };
+}
 
+const mapStateToProps = (state) => {
+    return {
+        pokemons: state.caughtPokemonsListLoaded
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CaughtPokemons);

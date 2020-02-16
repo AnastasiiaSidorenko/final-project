@@ -2,7 +2,9 @@
   "pokemons": [
     {
       "name": "bulbasaur",
-      "id": 1
+      "id": 1,
+      "isCaught": true,
+      "date": 1581885229814
     },
     {
       "name": "ivysaur",
@@ -14,7 +16,9 @@
     },
     {
       "name": "charmander",
-      "id": 4
+      "id": 4,
+      "isCaught": true,
+      "date": 1581885246891
     },
     {
       "name": "charmeleon",
@@ -26,7 +30,9 @@
     },
     {
       "name": "squirtle",
-      "id": 7
+      "id": 7,
+      "isCaught": true,
+      "date": 1581885405047
     },
     {
       "name": "wartortle",
@@ -3798,6 +3804,23 @@
     }
   ],
   "caught-pokemons": [
-    
+    {
+      "name": "bulbasaur",
+      "id": 1,
+      "isCaught": true,
+      "date": 1581885229814
+    },
+    {
+      "name": "charmander",
+      "id": 4,
+      "isCaught": true,
+      "date": 1581885246891
+    },
+    {
+      "name": "squirtle",
+      "id": 7,
+      "isCaught": true,
+      "date": 1581885405047
+    }
   ]
 }
