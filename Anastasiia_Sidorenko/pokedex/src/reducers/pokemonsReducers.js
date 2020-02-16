@@ -1,4 +1,4 @@
-import { POKEMON_LIST_LOADED, POKEMON_LIST_CLEARED, POKEMON_LOADED, CAUGHT_POKEMONS_LIST_LOADED } from '../actions/actions';
+import { POKEMON_LIST_LOADED, POKEMON_LIST_CLEARED, POKEMON_LOADED, CAUGHT_POKEMONS_LIST_LOADED, CAUGHT_POKEMON_ID } from '../actions/actions';
 
 export function pokemonListLoaded(state = [], action) {
     switch (action.type) {
@@ -9,6 +9,13 @@ export function pokemonListLoaded(state = [], action) {
             ];
         case POKEMON_LIST_CLEARED:
             return [];
+        case CAUGHT_POKEMON_ID:
+            return state.map(pokemon => {
+                if (pokemon.id === action.id) {
+                    pokemon.isCaught = true;
+                }
+                return pokemon;
+            });
         default:
             return state;
     }

@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getPokemons, pokemonClear } from '../actions/pokemonActionCreator';
+import { getPokemons, pokemonClear, catchPokemon } from '../actions/pokemonActionCreator';
 import Pokemon from '../components/pokemon/Pokemon';
-import axios from 'axios';
 
 class MainPage extends React.Component {
     constructor(props) {
@@ -38,8 +37,8 @@ class MainPage extends React.Component {
             isCaught: true,
             date: Date.now()
         };
-        axios.patch(`http://localhost:3004/pokemons/${pokemon.id}`, updatedPokemon)
-            .then(() => axios.post(`http://localhost:3004/caught-pokemons/`, updatedPokemon));
+
+        this.props.catchPokemon(updatedPokemon);
     }
 
     handleLoadClick = () => {
@@ -69,7 +68,8 @@ class MainPage extends React.Component {
 const mapDispatchToProps = (dispatch) => {
     return {
         loadPokemons: (page) => dispatch(getPokemons(page)),
-        clearPokemonsStore: () => dispatch(pokemonClear())
+        clearPokemonsStore: () => dispatch(pokemonClear()),
+        catchPokemon: (pokemon) => dispatch(catchPokemon(pokemon))
     };
 }
 

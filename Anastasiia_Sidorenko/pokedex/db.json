@@ -8,7 +8,9 @@
     },
     {
       "name": "ivysaur",
-      "id": 2
+      "id": 2,
+      "isCaught": true,
+      "date": 1581889603890
     },
     {
       "name": "venusaur",
@@ -50,7 +52,9 @@
     },
     {
       "name": "metapod",
-      "id": 11
+      "id": 11,
+      "isCaught": true,
+      "date": 1581889611142
     },
     {
       "name": "butterfree",
@@ -3829,6 +3833,18 @@
       "id": 10,
       "isCaught": true,
       "date": 1581886691890
+    },
+    {
+      "name": "ivysaur",
+      "id": 2,
+      "isCaught": true,
+      "date": 1581889603890
+    },
+    {
+      "name": "metapod",
+      "id": 11,
+      "isCaught": true,
+      "date": 1581889611142
     }
   ]
 }
