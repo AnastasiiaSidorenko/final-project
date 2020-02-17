@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { POKEMON_LIST_LOADED, POKEMON_LIST_CLEARED, POKEMON_LOADED, CAUGHT_POKEMONS_LIST_LOADED, CAUGHT_POKEMON_ID } from './actions';
+import { POKEMON_LIST_LOADED, POKEMON_LIST_CLEARED, POKEMON_LOADED, CAUGHT_POKEMONS_LIST_LOADED, CAUGHT_POKEMON_ID, HAS_ERROR, DATA_IS_LOADING } from './actions';
 
 export function pokemonListLoaded(pokemons) {
     return {
@@ -35,12 +35,29 @@ export function caughtPokemonId(id) {
     }
 }
 
+export function hasError(value) {
+    return {
+        type: HAS_ERROR,
+        value
+    }
+}
+
+export function dataIsLoading(value) {
+    return {
+        type: DATA_IS_LOADING,
+        value
+    }
+}
+
 export function getPokemons(page, limit = 12) {
     return (dispatch) => {
+        dispatch(dataIsLoading(true));
         axios.get(`http://localhost:3004/pokemons/?_page=${page}&_limit=${limit}`)
             .then(response => {
                 dispatch(pokemonListLoaded(response.data));
-            });
+                dispatch(dataIsLoading(false));
+            })
+            .catch(() => dispatch(hasError(true)));
     }
 }
 

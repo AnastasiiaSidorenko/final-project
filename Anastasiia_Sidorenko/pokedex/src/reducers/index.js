@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import { pokemonListLoaded, pokemonLoaded, caughtPokemonsListLoaded } from './pokemonsReducers';
+import { pokemonListLoaded, pokemonLoaded, caughtPokemonsListLoaded, hasError, dataIsLoading } from './pokemonsReducers';
 
 export default combineReducers({
     pokemonListLoaded,
     pokemonLoaded,
-    caughtPokemonsListLoaded
+    caughtPokemonsListLoaded,
+    hasError,
+    dataIsLoading
 });

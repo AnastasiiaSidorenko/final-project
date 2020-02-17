@@ -48,20 +48,33 @@ class MainPage extends React.Component {
     }
 
     render() {
-        return (
-            <div className="container">
-                <div className="row row-cols-1 row-cols-md-4 mt-3">
-                    {this.props.pokemons.map(pokemon => <Pokemon
-                        handleClick={this.handleCatchClick}
-                        key={pokemon.id}
-                        pokemon={pokemon}
-                        showButton={true} />)}
+        if (this.props.hasError) {
+            return <p className="text-center">Sorry, pokemons can't be loaded</p>
+        }
+        if (this.props.dataIsLoading && this.props.pokemons.length === 0) {
+            return (
+                <div className="text-center">
+                    <div className="spinner-border" role="status">
+                        <span className="sr-only">Loading...</span>
+                    </div>
                 </div>
-                <div className="d-flex justify-content-center mb-3">
-                    <button onClick={this.handleLoadClick} type="button" className="btn btn-primary btn-lg">Load more</button>
+            );
+        } else {
+            return (
+                <div className="container">
+                    <div className="row row-cols-1 row-cols-md-4 mt-3">
+                        {this.props.pokemons.map(pokemon => <Pokemon
+                            handleClick={this.handleCatchClick}
+                            key={pokemon.id}
+                            pokemon={pokemon}
+                            showButton={true} />)}
+                    </div>
+                    <div className="d-flex justify-content-center mb-3">
+                        <button onClick={this.handleLoadClick} type="button" className="btn btn-primary btn-lg">Load more</button>
+                    </div>
                 </div>
-            </div>
-        );
+            );
+        }
     }
 }
 
@@ -75,7 +88,9 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
     return {
-        pokemons: state.pokemonListLoaded
+        pokemons: state.pokemonListLoaded,
+        hasError: state.hasError,
+        dataIsLoading: state.dataIsLoading
     };
 }
 
