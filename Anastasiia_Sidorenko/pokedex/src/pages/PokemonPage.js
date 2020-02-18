@@ -4,7 +4,6 @@ import { getPokemon } from '../actions/pokemonActionCreator';
 import PokemonProfile from '../components/pokemonProfile/PokemonProfile';
 import LoadData from '../components/dataLoading/LoadData';
 import { withRouter } from 'react-router';
-import { dataIsLoading } from '../reducers/pokemonsReducers';
 
 class PokemonPage extends React.Component {
     constructor(props) {
