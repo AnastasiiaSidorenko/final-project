@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { getPokemons, pokemonClear, catchPokemon } from '../actions/pokemonActionCreator';
 import Pokemon from '../components/pokemon/Pokemon';
+import LoadData from '../components/dataLoading/LoadData';
 
 class MainPage extends React.Component {
     constructor(props) {
@@ -53,11 +54,7 @@ class MainPage extends React.Component {
         }
         if (this.props.dataIsLoading && this.props.pokemons.length === 0) {
             return (
-                <div className="text-center">
-                    <div className="spinner-border" role="status">
-                        <span className="sr-only">Loading...</span>
-                    </div>
-                </div>
+                <LoadData />
             );
         } else {
             return (

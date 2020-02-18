@@ -63,18 +63,22 @@ export function getPokemons(page, limit = 12) {
 
 export function getPokemon(id) {
     return (dispatch) => {
+        dispatch(dataIsLoading(true));
         axios.get(`http://localhost:3004/pokemons/${id}`)
             .then(response => {
                 dispatch(pokemonLoaded(response.data));
+                dispatch(dataIsLoading(false));
             });
     }
 }
 
 export function getCaughtPokemons() {
     return (dispatch) => {
+        dispatch(dataIsLoading(true));
         axios.get('http://localhost:3004/caught-pokemons')
             .then(response => {
                 dispatch(caughtPokemonsListLoaded(response.data));
+                dispatch(dataIsLoading(false));
             });
     }
 }

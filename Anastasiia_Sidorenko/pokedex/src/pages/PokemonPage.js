@@ -2,7 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { getPokemon } from '../actions/pokemonActionCreator';
 import PokemonProfile from '../components/pokemonProfile/PokemonProfile';
+import LoadData from '../components/dataLoading/LoadData';
 import { withRouter } from 'react-router';
+import { dataIsLoading } from '../reducers/pokemonsReducers';
 
 class PokemonPage extends React.Component {
     constructor(props) {
@@ -15,9 +17,15 @@ class PokemonPage extends React.Component {
     }
 
     render() {
-        return (
-            <PokemonProfile pokemon={this.props.pokemon} />
-        );
+        if (this.props.dataIsLoading) {
+            return (
+                <LoadData />
+            );
+        } else {
+            return (
+                <PokemonProfile pokemon={this.props.pokemon} />
+            );
+        }
     }
 }
 
@@ -29,7 +37,8 @@ const mapDispatchToProps = (dispatch) => {
 
 const mapStateToProps = (state) => {
     return {
-        pokemon: state.pokemonLoaded
+        pokemon: state.pokemonLoaded,
+        dataIsLoading: state.dataIsLoading
     };
 }
 
