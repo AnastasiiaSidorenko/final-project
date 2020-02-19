@@ -5,9 +5,6 @@ import Pokemon from '../components/pokemon/Pokemon';
 import LoadData from '../components/dataLoading/LoadData';
 
 class CaughtPokemons extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     componentDidMount() {
         this.props.loadCaughtPokemons();
