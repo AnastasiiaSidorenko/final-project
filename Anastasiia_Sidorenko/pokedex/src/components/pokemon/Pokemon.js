@@ -1,11 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { addDefaultSrc } from '../../utilities/addDefaultSrc';
 
 const Pokemon = (props) => {
-    const addDefaultSrc = (e) => {
-        e.target.src = require('../../images/no-image-icon.png');
-    }
-
     return (
         <Link to={`/pokemon/${props.pokemon.id}`}>
             <div className="col mb-4">

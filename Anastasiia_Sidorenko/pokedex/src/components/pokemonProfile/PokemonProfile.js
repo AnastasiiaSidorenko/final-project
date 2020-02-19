@@ -1,10 +1,8 @@
 import React from 'react';
+import { addDefaultSrc } from '../../utilities/addDefaultSrc';
+
 
 const PokemonProfile = (props) => {
-    const addDefaultSrc = (e) => {
-        e.target.src = require('../../images/no-image-icon.png');
-    }
-
     return (
         <div className="card mb-3">
             <div className="row no-gutters">
