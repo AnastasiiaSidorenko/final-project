@@ -202,7 +202,9 @@
     },
     {
       "name": "venonat",
-      "id": 48
+      "id": 48,
+      "isCaught": true,
+      "date": 1582112253677
     },
     {
       "name": "venomoth",
@@ -3845,6 +3847,12 @@
       "id": 11,
       "isCaught": true,
       "date": 1581889611142
+    },
+    {
+      "name": "venonat",
+      "id": 48,
+      "isCaught": true,
+      "date": 1582112253677
     }
   ]
 }

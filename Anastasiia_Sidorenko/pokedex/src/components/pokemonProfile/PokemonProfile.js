@@ -1,11 +1,15 @@
 import React from 'react';
 
 const PokemonProfile = (props) => {
+    const addDefaultSrc = (e) => {
+        e.target.src = require('../../images/no-image-icon.png');
+    }
+
     return (
         <div className="card mb-3">
             <div className="row no-gutters">
                 <div className="col-md-4">
-                    <img src={`./../pokemons/${props.pokemon.id}.png`} className="card-img-top" alt="Pokemon" />
+                    <img src={`./../pokemons/${props.pokemon.id}.png`} onError={addDefaultSrc} className="card-img-top" alt="Pokemon" />
                 </div>
                 <div className="col-md-8">
                     <div className="card-body">
