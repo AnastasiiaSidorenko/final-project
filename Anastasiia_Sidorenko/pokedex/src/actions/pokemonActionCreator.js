@@ -1,5 +1,13 @@
 import axios from 'axios';
-import { POKEMON_LIST_LOADED, POKEMON_LIST_CLEARED, POKEMON_LOADED, CAUGHT_POKEMONS_LIST_LOADED, CAUGHT_POKEMON_ID, HAS_ERROR, DATA_IS_LOADING } from './actions';
+import {
+    POKEMON_LIST_LOADED,
+    POKEMON_LIST_CLEARED,
+    POKEMON_LOADED,
+    CAUGHT_POKEMONS_LIST_LOADED,
+    CAUGHT_POKEMON_ID,
+    HAS_ERROR,
+    DATA_IS_LOADING
+} from './actions';
 
 export function pokemonListLoaded(pokemons) {
     return {

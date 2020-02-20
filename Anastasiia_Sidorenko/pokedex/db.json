@@ -14,7 +14,9 @@
     },
     {
       "name": "venusaur",
-      "id": 3
+      "id": 3,
+      "isCaught": true,
+      "date": 1582190989724
     },
     {
       "name": "charmander",
@@ -174,7 +176,9 @@
     },
     {
       "name": "zubat",
-      "id": 41
+      "id": 41,
+      "isCaught": true,
+      "date": 1582191016484
     },
     {
       "name": "golbat",
@@ -190,7 +194,9 @@
     },
     {
       "name": "vileplume",
-      "id": 45
+      "id": 45,
+      "isCaught": true,
+      "date": 1582191014032
     },
     {
       "name": "paras",
@@ -3853,6 +3859,24 @@
       "id": 48,
       "isCaught": true,
       "date": 1582112253677
+    },
+    {
+      "name": "venusaur",
+      "id": 3,
+      "isCaught": true,
+      "date": 1582190989724
+    },
+    {
+      "name": "vileplume",
+      "id": 45,
+      "isCaught": true,
+      "date": 1582191014032
+    },
+    {
+      "name": "zubat",
+      "id": 41,
+      "isCaught": true,
+      "date": 1582191016484
     }
   ]
 }

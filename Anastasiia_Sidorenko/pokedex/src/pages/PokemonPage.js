@@ -6,7 +6,6 @@ import LoadData from '../components/dataLoading/LoadData';
 import { withRouter } from 'react-router';
 
 class PokemonPage extends React.Component {
-
     componentDidMount() {
         const { match } = this.props;
         this.props.loadPokemon(match.params.id);
